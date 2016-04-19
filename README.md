@@ -40,7 +40,7 @@ mvn compile exec:java -Dexec.mainClass="com.aisearch.AISearch" -Dexec.args="src/
 
 
 ## Output
-![Preview](doc/astar.png)
+![Preview](doc/a-star.gif)
 
 
 ## File format
@@ -61,7 +61,7 @@ NO
 | ------------- | ----------- |
 | Total Nodes | 3 |
 | Node Name | 0 |
-| PosicionX, PosicionY | 220,30 |
+| Position X,Position Y | 220,30 |
 | Value Node | 40 |
 | Is Target Node | NO |
 | ... | 
