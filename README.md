@@ -11,14 +11,14 @@ Animation software for algorithms Artificial Intelligence
 - Best First Search 
 - A* Search
 
-### Prerequires
+## Prerequires
 
 1. Git 2.6+
 2. Maven 3+
 3. Java 8+
 
 
-### How to Play
+## How to Play
 
 Clone
 
@@ -39,34 +39,40 @@ mvn compile exec:java -Dexec.mainClass="com.aisearch.AISearch" -Dexec.args="src/
 ```
 
 
-### Output
+## Output
 ![Preview](doc/astar.png)
 
 
-**As an example a table where a graph is defined with three nodes linked shown:**
+## File format
 
-| Description | Grafo file |
+Example of
+[src/main/resources/graph_01.txt](src/main/resources/graph_01.txt)
+
+```
+9
+0
+220,30
+40
+NO
+...
+```
+
+| Description | Value |
 | ------------- | ----------- |
 | Total Nodes | 3 |
-| Node Name | A |
-| PosicionX, PosicionY | 100, 40 |
-| Value Node | 10 |
-| EsObjetivo select YES or NO {} | NO |
-| NumeroSucesores | 2 |
-| NombreSucesores, CosteArco | B, 10 |
-| NombreSucesores, CosteArco | C, 5 |
-| NodeName | B |
-| PosicionX, PosicionY | 60, 120 |
-| Value Node | 20 |
-| EsObjetivo select YES or NO {} | NO |
-| NumeroSucesores | 0 |
-| NodeName | C |
-| PosicionX, PosicionY | 120, 150 |
-| Value Node | 15 |
-| EsObjetivo select YES or NO {} | SI |
-| NumeroSucesores | 0 |
+| Node Name | 0 |
+| PosicionX, PosicionY | 220,30 |
+| Value Node | 40 |
+| Is Target Node | NO |
+| ... | 
 
 
-### References
+## References
 
-[A* search algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm)
+- [Breadth-First Search](https://en.wikipedia.org/wiki/Breadth-first_search)
+- [Depth-First Search](https://en.wikipedia.org/wiki/Depth-first_search) 
+- [Simple Hill Climbing](https://en.wikipedia.org/wiki/Hill_climbing) 
+- [Steepest Ascent Hill Climbing](https://en.wikipedia.org/wiki/Hill_climbing) 
+- [Best First Search](https://en.wikipedia.org/wiki/Best-first_search) 
+- [A* Search](https://en.wikipedia.org/wiki/A*_search_algorithm)
+
