@@ -1,5 +1,11 @@
 package com.aisearch;
 
+import com.aisearch.algorithm.AStar;
+import com.aisearch.algorithm.BestFirstSearch;
+import com.aisearch.algorithm.BreadthFirstSearch;
+import com.aisearch.algorithm.DepthFirstSearch;
+import com.aisearch.algorithm.SimpleHillClimbing;
+import com.aisearch.algorithm.SteepestAscentHillClimbing;
 import java.util.Date;
 import java.awt.event.*;
 import java.awt.*;
@@ -25,12 +31,12 @@ public class AISearch extends Frame {
     Dialog DAbout;
 
     private final Graph grafo;
-    private Graph.BFS bfs;
-    private Graph.DFS dfs;
-    private Graph.SHC shc;
-    private Graph.SAHC sahc;
-    private Graph.BF bf;
-    private Graph.AE ae;
+    private BreadthFirstSearch bfs;
+    private DepthFirstSearch dfs;
+    private SimpleHillClimbing shc;
+    private SteepestAscentHillClimbing sahc;
+    private BestFirstSearch bf;
+    private AStar ae;
 
     // clase main
     public static void main(String args[]) {
@@ -184,9 +190,10 @@ public class AISearch extends Frame {
 
         // muestra la ventana principal
         this.setVisible(true);
-        
-        if(graphPathFile != null)
+
+        if (graphPathFile != null) {
             loadGraph(graphPathFile.getAbsolutePath());
+        }
     }
 
     // clases para controlar eventos
@@ -230,7 +237,8 @@ public class AISearch extends Frame {
             sahc = null;
             bf = null;
             ae = null;
-            bfs = grafo.new BFS();
+            bfs = new BreadthFirstSearch(grafo);
+
             TAInformation.append("\n" + (new Date()).toString() + ": Breadth-First Search algorithm selected.\n");
             // activa los controles
             CSearch.setEnabled(true);
@@ -251,7 +259,6 @@ public class AISearch extends Frame {
         ControladorChoice(Choice cp) {
             c = cp;
         }
-
         @Override
         public void itemStateChanged(ItemEvent evt) {
             // resetea el grafo y los algoritmos
@@ -265,27 +272,27 @@ public class AISearch extends Frame {
             // establece el algoritmo seleccionado
             switch (c.getSelectedIndex()) {
                 case 0:
-                    bfs = grafo.new BFS();
+                    bfs = new BreadthFirstSearch(grafo);
                     TAInformation.append("\n" + (new Date()).toString() + ": Breadth-First Search algorithm selected.\n");
                     break;
                 case 1:
-                    dfs = grafo.new DFS();
+                    dfs = new DepthFirstSearch(grafo);
                     TAInformation.append("\n" + (new Date()).toString() + ": Depth-First Search algorithm selected.\n");
                     break;
                 case 2:
-                    shc = grafo.new SHC();
+                    shc = new SimpleHillClimbing(grafo);
                     TAInformation.append("\n" + (new Date()).toString() + ": Simple Hill Climbing algorithm selected.\n");
                     break;
                 case 3:
-                    sahc = grafo.new SAHC();
+                    sahc = new SteepestAscentHillClimbing(grafo);
                     TAInformation.append("\n" + (new Date()).toString() + ": Steepest Ascent Hill Climbing algorithm selected.\n");
                     break;
                 case 4:
-                    bf = grafo.new BF();
+                    bf = new BestFirstSearch(grafo);
                     TAInformation.append("\n" + (new Date()).toString() + ": Best First Search algorithm selected.\n");
                     break;
                 case 5:
-                    ae = grafo.new AE();
+                    ae = new AStar(grafo);
                     TAInformation.append("\n" + (new Date()).toString() + ": A* Search algorithm selected.\n");
                     break;
             }
@@ -294,6 +301,7 @@ public class AISearch extends Frame {
             // activa el boton de ejecucion
             BRun.setEnabled(true);
         }
+
     }
 
     class ControladorCheckBox implements ItemListener {
@@ -545,6 +553,7 @@ public class AISearch extends Frame {
                         }
                         break;
                 }
+                grafo.repaint();
             }
             if (b.equals(BRestart)) {
                 grafo.reset();
