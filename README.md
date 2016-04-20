@@ -35,7 +35,9 @@ cd java-ai-search-algorithms
 Run
 
 ```
-mvn compile exec:java -Dexec.mainClass="com.aisearch.AISearch" -Dexec.args="src/main/resources/graph_01.txt"
+mvn compile exec:java \
+-Dexec.mainClass="com.aisearch.AISearch" \
+-Dexec.args="src/main/resources/graph_01.txt"
 ```
 
 
