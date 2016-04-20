@@ -37,7 +37,7 @@ Run
 ```
 mvn compile exec:java \
 -Dexec.mainClass="com.aisearch.AISearch" \
--Dexec.args="src/main/resources/graph_01.txt"
+-Dexec.args="src/main/resources/graph_02.txt"
 ```
 
 
@@ -48,23 +48,23 @@ mvn compile exec:java \
 ## File format
 
 Example of
-[src/main/resources/graph_01.txt](src/main/resources/graph_01.txt)
+[src/main/resources/graph_02.txt](src/main/resources/graph_02.txt)
 
 ```
-9
-0
-220,30
-40
+11
+A
+323,42
+5
 NO
 ...
 ```
 
 | Description | Value |
 | ------------- | ----------- |
-| Total Nodes | 3 |
-| Node Name | 0 |
-| Position X,Position Y | 220,30 |
-| Value Node | 40 |
+| Total Nodes | 11 |
+| Node Name | A |
+| Position X,Position Y | 323,42 |
+| Value Node | 5 |
 | Is Target Node | NO |
 | ... | 
 
