@@ -11,7 +11,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.io.File;
 
-public class AISearch extends Frame {
+public final class AISearch extends Frame {
 
     private static final long serialVersionUID = 1L;
 

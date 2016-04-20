@@ -109,6 +109,7 @@ public class AStar implements Searchable {
     }
 
     // ejecuta el algoritmo en modo paso por paso
+    @Override
     public boolean step() {
         boolean ejecutandose = true;
         switch (Step) {

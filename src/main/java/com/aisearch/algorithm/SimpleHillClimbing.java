@@ -28,6 +28,7 @@ public class SimpleHillClimbing implements Searchable {
     }
 
     // reinicia el algoritmo
+    @Override
     public void reset() {
         // inicia el algoritmo;
         if (graph.getNodes().size() > 0) {
@@ -36,6 +37,7 @@ public class SimpleHillClimbing implements Searchable {
     }
 
     // ejecuta el algoritmo en modo temporizador
+    @Override
     public void run() {
         while (Step < 3) {
             switch (Step) {
